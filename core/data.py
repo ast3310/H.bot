@@ -37,16 +37,13 @@ class MessageData(Data):
         
         return message
     
-    
     @property
     def is_chat(self):
         return self.chat_id == self.user_id
     
-    
     @property
     def has_payload(self):
         return 'payload' in self.data
-    
     
     def get_payload(self):
         return json.loads(self.data['payload']) if self.has_payload else None
