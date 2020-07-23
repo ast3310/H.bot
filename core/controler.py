@@ -1,6 +1,3 @@
-import json
-from handlers_settings import HANDLERS_LIST
-
 class EventControler():
     def __init__(self, handlers, api, db):
         self.handlers = handlers
