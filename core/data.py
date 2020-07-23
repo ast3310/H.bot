@@ -1,11 +1,13 @@
 import json
 import datetime
 
+
 class Data():
     @classmethod
     def from_raw(cls, data):
         pass
 
+    
 class EventData(Data):
     __slots__ = ('type', 'data', 'date')
 
@@ -17,6 +19,7 @@ class EventData(Data):
         event.date = datetime.datetime.now()
         
         return event
+
 
 class MessageData(Data):
     __slots__ = ('data', 'id', 'date', 'text', 'chat_id', 'user_id',
@@ -34,13 +37,17 @@ class MessageData(Data):
         
         return message
     
+    
     @property
     def is_chat(self):
         return self.chat_id == self.user_id
+    
     
     @property
     def has_payload(self):
         return 'payload' in self.data
     
+    
     def get_payload(self):
         return json.loads(self.data['payload']) if self.has_payload else None
+
