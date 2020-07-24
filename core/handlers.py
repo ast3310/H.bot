@@ -50,7 +50,7 @@ class MessageHandler(EventHandler):
 
     def _check_permissions(self, message):
         for permission in self._get_permissions():
-            if not permission.check(message):
+            if permission.check(message) is False:
                 return False
         return True
     
