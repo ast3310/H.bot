@@ -9,7 +9,7 @@ class EventControler():
         
     def recognition(self, event):
         for handler in self.handlers:
-            if handler.check_event(event):
+            if handler.check_event(event) is True:
                 return handler.handle_event(event)
     
     def _initaite_handlers(self):
