@@ -2,9 +2,9 @@ from app import app, controler
 from flask import request
 import json
 import config
+
 from core.types import EventType
 from core.data import EventData
-
 
 @app.route('/', methods=['GET', 'POST'])
 def index():

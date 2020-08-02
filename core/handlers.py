@@ -3,12 +3,15 @@ import random
 from core.data import MessageData
 from core.types import EventType
 
-class EventHandler():
-    __slots__ = ('api', 'db')
 
-    def start(self, api, db):
+class EventHandler():
+    __slots__ = ('name', 'api', 'db', 'logger')
+
+    def start(self, api, db, logger):
         self.api = api
         self.db = db
+        self.logger = logger
+        self.name = self.__class__.__name__
 
     def initiate(self):
         '''This method will be called every time the bot is launched'''
@@ -83,8 +86,8 @@ class MessageHandler(EventHandler):
 class CommandHandler(MessageHandler):
     __slots__ = ('prefix', 'command', 'args_count')
 
-    def start(self, api, db):
-        super().start(api, db)
+    def start(self, api, db, logger):
+        super().start(api, db, logger)
         self.prefix = ''
         self.command = ''
         self.args_count = 0

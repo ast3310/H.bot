@@ -1,4 +1,5 @@
 import os
+import logging
 
 app_dir = os.path.abspath(os.path.dirname(__file__))
 
@@ -13,3 +14,9 @@ class VkConfig:
     TOKEN = os.environ.get('TOKEN')
     RETURN_STR = os.environ.get('RETURN_STR')
     GROUP_ID = int(os.environ.get('GROUP_ID'))
+
+class LoggerConfig:
+    LEVEL = logging.INFO
+    FILE_NAME = 'bot.log'
+    FORMAT = "%(levelname)s : %(asctime)s - %(message)s"
+

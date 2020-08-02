@@ -1,7 +1,6 @@
 import json
 import datetime
 
-
 class Data():
     @classmethod
     def from_raw(cls, data):
@@ -47,4 +46,3 @@ class MessageData(Data):
     
     def get_payload(self):
         return json.loads(self.data['payload']) if self.has_payload else None
-

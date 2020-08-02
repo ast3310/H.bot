@@ -3,6 +3,7 @@ from core.handlers import MessageHandler
 class ExampleHandler(MessageHandler):
     def initiate(self):
         self.permissions = []
+        self.name = 'Test_handler'
 
     def check_message(self, message):
         if message.text == 'Test':
